@@ -1,3 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --color-slate-100: #f1f5f9;
+  --color-slate-100-10: rgb(241, 245, 249, 0.6);
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400-50: rgba(148, 163, 184, 0.5);
+  --color-slate-400: #94a3b8;
+  --color-slate-600: #94a3b8;
+  --color-slate-800: #1e293b;
+  --color-rose-200: #fecdd3;
+  --color-rose-400: #fb7185;
+  --color-rose-500: #f43f5e;
+  --color-amber-200: #fde68a;
+  --color-amber-400: #fbbf24;
+  --color-green-200: #bbf7d0;
+  --color-green-300: #86efac;
+  --color-green-400: #4ade80;
+  --color-green-500: #22c55e;
+  --color-yellow-500: #ca8a04;
+  --color-indigo-800: #3730a3;
+  --font-primary: Poppins, Arial, Helvetica, sans-serif;
+  --font-secondary: Inter, Arial, Helvetica, sans-serif;
+}
+
 /* Basic CSS Reset */
 *,
 *::before,
@@ -12,7 +38,11 @@
 }
 
 body {
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-800);
+  font-family: var(--font-secondary);
   min-height: 100vh;
+  position: relative;
 }
 
 img,
@@ -22,4 +52,324 @@ video {
   display: block;
   max-width: 100%;
 }
+
+button {
+  cursor: pointer;
+}
 /* End of Basic CSS Reset */
+
+/* PageLayout Component Style */
+.page-layout {
+  margin: 0 auto;
+  max-width: 1420px;
+}
+
+/* Header Component Style */
+.header-app {
+  margin-bottom: 0.5em;
+}
+
+.nav-app__container {
+  padding: 0.6em;
+  overflow: hidden;
+}
+
+.nav-app__container-inner {
+  background-color: var(--color-slate-200);
+  border-radius: 0.6em;
+  display: flex;
+  column-gap: 2em;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 0.6em;
+}
+
+.nav-app__logo {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 1.6rem;
+  user-select: none;
+}
+
+.nav-app__search-notes {
+  background-color: var(--color-slate-300);
+  border: none;
+  border-radius: 0.4em;
+  display: inline-block;
+  padding: 0.6em 0.4em;
+  width: 100%;
+  max-width: 426px;
+}
+
+.nav-app__search-notes::placeholder {
+  color: #94a3b8;
+}
+
+/* MainContent Component Style */
+.main-content__container {
+  padding: 0 0.6em;
+  height: calc(100vh - 98px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.note-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.note-panel__add-note {
+  background-color: var(--color-slate-300);
+  border: none;
+  border-radius: 0.2em;
+  display: flex;
+  align-items: center;
+  column-gap: 0.2em;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 0.2em 0.4em;
+  user-select: none;
+  transition: background-color 300ms ease;
+}
+
+.note-panel__add-note:hover,
+.note-panel__add-note:focus {
+  background-color: var(--color-slate-600);
+}
+
+.archive-notes__label {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 0.2em;
+  align-items: center;
+}
+
+.archive-notes__toggler {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+}
+
+.archive-notes__toggler-text {
+  user-select: none;
+}
+
+.notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-auto-rows: max-content;
+  gap: 1em;
+  height: calc(100vh - 151px);
+  padding-bottom: 1.2em;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.notes__item-card {
+  background-color: var(--color-slate-200);
+  border-radius: 0.6em;
+  height: max-content;
+  overflow: hidden;
+}
+
+.notes__item-content {
+  padding: 0.6em 0.8em 0 0.8em;
+  margin-bottom: 0.5em;
+}
+
+.notes__item-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: var(--font-primary);
+  margin-bottom: 0.2em;
+}
+
+.notes__item-date {
+  background-color: var(--color-indigo-800);
+  border-radius: 0.2em;
+  color: var(--color-slate-300);
+  display: inline-block;
+  padding: 0.2em 0.4em;
+  margin-bottom: 0.8em;
+}
+
+.notes__item-body {
+  height: 150px;
+  overflow: hidden auto;
+}
+
+.notes__buttons-container {
+  display: flex;
+}
+
+.notes__button {
+  border: none;
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.4em 0;
+  width: 100%;
+  user-select: none;
+}
+
+.notes__button--delete {
+  background-color: var(--color-rose-200);
+  transition: background-color 300ms ease;
+}
+
+.notes__button--delete:hover,
+.notes__button--delete:focus {
+  background-color: var(--color-rose-400);
+}
+
+.notes__button--archive,
+.notes__button--unarchive {
+  background-color: var(--color-amber-200);
+  transition: background-color 300ms ease;
+}
+
+.notes__button--archive:hover,
+.notes__button--unarchive:hover,
+.notes__button--archive:focus,
+.notes__button--unarchive:focus {
+  background-color: var(--color-amber-400);
+}
+
+.empty-notes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 151px);
+  width: 100%;
+}
+
+.empty-notes__text {
+  color: var(--color-slate-600);
+  user-select: none;
+}
+
+/* FormNote Component Style */
+.form-note {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+}
+
+.form-note__overlay {
+  background-color: var(--color-slate-100-10);
+  backdrop-filter: blur(0.4em);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 1em;
+}
+
+.form-note__form-container {
+  background-color: var(--color-slate-200);
+  box-shadow: 0px 10px 15px -3px var(--color-slate-400-50);
+  border-radius: 0.8em;
+  flex: 1;
+  padding: 1.8em 1em;
+  max-width: 768px;
+}
+
+.form-note__form-title {
+  font-size: 2rem;
+  font-family: var(--font-primary);
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.form-note__char-limiter-text {
+  margin-bottom: 0.5em;
+}
+
+.form-note__char-limiter-text--green {
+  color: var(--color-green-500);
+}
+
+.form-note__char-limiter-text--yellow {
+  color: var(--color-yellow-500);
+}
+
+.form-note__char-limiter-text--rose {
+  color: var(--color-rose-500);
+}
+
+.form-note__note-input {
+  display: grid;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.form-note__label-input {
+  display: block;
+}
+
+.form-note__title-input {
+  background-color: var(--color-slate-100);
+  border: none;
+  border-radius: 0.4em;
+  display: inline-block;
+  padding: 0.6em 0.4em;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.form-note__content-input {
+  background-color: var(--color-slate-100);
+  border: none;
+  border-radius: 0.4em;
+  display: inline-block;
+  resize: none;
+  font-size: 1.2rem;
+  padding: 0.6em 0.4em;
+  min-height: 256px;
+  width: 100%;
+}
+
+.form-note__buttons-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 0.6em;
+}
+
+.form-note__button {
+  border: none;
+  border-radius: 0.4em;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  padding: 0.8em 0;
+  user-select: none;
+  transition: background-color 300ms ease;
+}
+
+.form-note__button--create {
+  background-color: var(--color-green-300);
+}
+
+.form-note__button--create:hover,
+.form-note__button--create:focus {
+  background-color: var(--color-green-400);
+}
+
+.form-note__button--cancel {
+  background-color: var(--color-slate-300);
+}
+
+.form-note__button--cancel:hover,
+.form-note__button--cancel:focus {
+  background-color: var(--color-slate-400);
+}
