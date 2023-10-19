@@ -118,11 +118,13 @@ class App extends React.Component {
       <PageLayout>
         <Header
           searchNote={this.state.searchNote}
+          isShowFormNote={this.state.isShowFormNote}
           handleSearchNote={this.handleSearchNote}
         />
 
         <MainContent
           notes={filteredNotes}
+          searchNote={this.state.searchNote}
           isShowArcNote={this.state.isShowArcNote}
           isShowFormNote={this.state.isShowFormNote}
           handleShowArcNote={this.handleShowArcNote}

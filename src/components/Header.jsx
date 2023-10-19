@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 
-export default function Header({ searchNote, handleSearchNote }) {
+export default function Header({
+  searchNote,
+  isShowFormNote,
+  handleSearchNote,
+}) {
   return (
     <header className="header-app">
       <nav className="nav-app">
@@ -13,6 +17,7 @@ export default function Header({ searchNote, handleSearchNote }) {
               placeholder="Search notes"
               value={searchNote}
               onChange={(ev) => handleSearchNote(ev.target.value)}
+              tabIndex={isShowFormNote ? -1 : 0}
             />
           </div>
         </div>
@@ -23,5 +28,6 @@ export default function Header({ searchNote, handleSearchNote }) {
 
 Header.propTypes = {
   searchNote: PropTypes.string.isRequired,
+  isShowFormNote: PropTypes.bool.isRequired,
   handleSearchNote: PropTypes.func.isRequired,
 };

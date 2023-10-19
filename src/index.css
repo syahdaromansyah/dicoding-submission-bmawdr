@@ -136,7 +136,8 @@ button {
   transition: background-color 300ms ease;
 }
 
-.note-panel__add-note:hover {
+.note-panel__add-note:hover,
+.note-panel__add-note:focus {
   background-color: var(--color-slate-600);
 }
 
@@ -221,7 +222,8 @@ button {
   transition: background-color 300ms ease;
 }
 
-.notes__button--delete:hover {
+.notes__button--delete:hover,
+.notes__button--delete:focus {
   background-color: var(--color-rose-400);
 }
 
@@ -232,7 +234,9 @@ button {
 }
 
 .notes__button--archive:hover,
-.notes__button--unarchive:hover {
+.notes__button--unarchive:hover,
+.notes__button--archive:focus,
+.notes__button--unarchive:focus {
   background-color: var(--color-amber-400);
 }
 
@@ -356,7 +360,8 @@ button {
   background-color: var(--color-green-300);
 }
 
-.form-note__button--create:hover {
+.form-note__button--create:hover,
+.form-note__button--create:focus {
   background-color: var(--color-green-400);
 }
 
@@ -364,6 +369,7 @@ button {
   background-color: var(--color-slate-300);
 }
 
-.form-note__button--cancel:hover {
+.form-note__button--cancel:hover,
+.form-note__button--cancel:focus {
   background-color: var(--color-slate-400);
 }

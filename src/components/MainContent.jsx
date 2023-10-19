@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
-import { FaPlus } from 'react-icons/fa';
-import ArchiveNotesToggler from './ArchiveNotesToggler';
+import EmptyNotesInfo from './EmptyNotesInfo';
 import FormNote from './FormNote.jsx';
 import NoteCards from './NoteCards.jsx';
+import NotePanel from './NotePanel.jsx';
 
 export default function MainContent({
   notes,
+  searchNote,
   isShowArcNote,
   isShowFormNote,
   handleShowArcNote,
@@ -19,27 +20,22 @@ export default function MainContent({
   return (
     <main>
       <div className="main-content__container">
-        <div className="note-panel">
-          <ArchiveNotesToggler
-            isShowArcNote={isShowArcNote}
-            handleShowArcNote={handleShowArcNote}
-          />
-          <button
-            className="note-panel__add-note"
-            type="button"
-            onClick={handleShowFormNote}
-          >
-            <FaPlus /> <span>Add Note</span>
-          </button>
-        </div>
+        <NotePanel
+          isShowArcNote={isShowArcNote}
+          isShowFormNote={isShowFormNote}
+          handleShowArcNote={handleShowArcNote}
+          handleShowFormNote={handleShowFormNote}
+        />
 
         {notes.length === 0 ? (
-          <div className="empty-notes">
-            <p className="empty-notes__text">Notes is empty</p>
-          </div>
+          <EmptyNotesInfo
+            isShowArcNote={isShowArcNote}
+            searchNote={searchNote}
+          />
         ) : (
           <NoteCards
             notes={notes}
+            isShowFormNote={isShowFormNote}
             handleDeleteNote={handleDeleteNote}
             handleArchive={handleArchive}
             handleUnArchive={handleUnArchive}
@@ -58,6 +54,7 @@ export default function MainContent({
 
 MainContent.propTypes = {
   notes: PropTypes.array.isRequired,
+  searchNote: PropTypes.string.isRequired,
   isShowArcNote: PropTypes.bool.isRequired,
   isShowFormNote: PropTypes.bool.isRequired,
   handleShowArcNote: PropTypes.func.isRequired,

@@ -3,6 +3,7 @@ import { showFormattedDate } from '../lib/showFormattedDate.js';
 
 export default function NoteCards({
   notes,
+  isShowFormNote,
   handleDeleteNote,
   handleArchive,
   handleUnArchive,
@@ -24,6 +25,7 @@ export default function NoteCards({
               className=" notes__button notes__button--delete"
               type="button"
               onClick={() => handleDeleteNote(data.id)}
+              tabIndex={isShowFormNote ? -1 : 0}
             >
               Delete
             </button>
@@ -33,6 +35,7 @@ export default function NoteCards({
                 className="notes__button notes__button--unarchive"
                 type="button"
                 onClick={() => handleUnArchive(data.id)}
+                tabIndex={isShowFormNote ? -1 : 0}
               >
                 Unarchive
               </button>
@@ -41,6 +44,7 @@ export default function NoteCards({
                 className="notes__button notes__button--archive"
                 type="button"
                 onClick={() => handleArchive(data.id)}
+                tabIndex={isShowFormNote ? -1 : 0}
               >
                 Archive
               </button>
@@ -54,6 +58,7 @@ export default function NoteCards({
 
 NoteCards.propTypes = {
   notes: PropTypes.array.isRequired,
+  isShowFormNote: PropTypes.bool.isRequired,
   handleDeleteNote: PropTypes.func.isRequired,
   handleArchive: PropTypes.func.isRequired,
   handleUnArchive: PropTypes.func.isRequired,
