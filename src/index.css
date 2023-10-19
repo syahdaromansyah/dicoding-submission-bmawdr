@@ -2,7 +2,7 @@
 
 :root {
   --color-slate-100: #f1f5f9;
-  --color-slate-100-10: rgb(241, 245, 249, 0.6);
+  --color-slate-100-60: rgb(241, 245, 249, 0.6);
   --color-slate-200: #e2e8f0;
   --color-slate-300: #cbd5e1;
   --color-slate-400-50: rgba(148, 163, 184, 0.5);
@@ -264,7 +264,7 @@ button {
 }
 
 .form-note__overlay {
-  background-color: var(--color-slate-100-10);
+  background-color: var(--color-slate-100-60);
   backdrop-filter: blur(0.4em);
   display: flex;
   justify-content: center;
